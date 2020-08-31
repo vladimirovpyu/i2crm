@@ -1,0 +1,18 @@
+
+<button id="popupButton">Click me!</button>
+
+<script>
+    document.getElementById("popupButton").addEventListener("click", function () {
+        const request = new XMLHttpRequest();
+        request.open('GET', '/');
+
+        request.addEventListener("readystatechange", () => {
+            console.log(request);
+            if (request.readyState === 4 && request.status === 200) {
+                window.open("https://www.ya.ru/", "popup", "width=640,height=480");
+            }
+        });
+        request.send();
+
+    });
+</script>
